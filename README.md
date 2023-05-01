@@ -89,4 +89,4 @@ The app may run into errors and you can debug the same using references from err
 
 ## Feedback and contact
 
-[@sundeepkrv](https://github.com/sundepkrv)
+[@sundeepkrv](https://github.com/sundeepkrv)
