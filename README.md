@@ -3,7 +3,7 @@ A simple cafe sales management system for office cafe where an admin can login, 
 
 ## Demo
 
-Insert gif or link to demo
+![App Walkthrough](https://raw.githubusercontent.com/sundepkrv/cafe42/main/screenshots/AppWalkthrough.gif)
 
 ## Screenshots
 
