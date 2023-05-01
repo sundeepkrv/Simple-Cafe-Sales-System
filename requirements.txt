@@ -1,0 +1,6 @@
+Flask
+flask_session
+jinja2
+numpy
+pandas
+werkzeug

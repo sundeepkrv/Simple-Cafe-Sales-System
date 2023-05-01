@@ -1,0 +1,52 @@
+{% include 'head.html' %}
+{% block body %}
+	<p class='text-center'>
+		<a href='{{url_for("addEntry")}}' class='btn btn-success m-1'><i class="fa-solid fa-plus"></i> Add New Entry</a> 
+		<a href='{{url_for("summary")}}' class='btn btn-primary m-1'><i class="fa-solid fa-chart-simple"></i> Sales Summary</a> 
+		<a type="button" class="btn btn-danger text-white" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+	</p>
+	<h4 class="text-center my-2">All Entries</h4>
+	<div class="container tablediv">
+		<table class='table' id="table">
+			<thead class="table-primary">
+				<th class="text-center">Sl</th>
+				<th>Name</th>
+				<th>Item</th>
+				<th>Qty</th>
+				<th>Total</th>
+				<th>Date</th>
+				<th><i class="fa-solid fa-gear"></i></th>
+			</thead>
+			<tbody id="tbody">
+				{% for row in datas %}
+					<tr>
+						<td class="text-center">{{loop.index}}</td>
+						<td>{{row.NAME}}</td>
+						<td>{{row.ITEM}}</td>
+						<td>{{row.QUANTITY}}</td>
+						<td>{{row.TOTAL}}</td>
+						<td>{{row.DATE}}</td>
+						<td><a href='{{url_for("editEntry",uid=row.UID)}}'><i class="fa-solid fa-pen-to-square" style="color: #0000ff;"></i></a>&nbsp;<a href="#" data-href='{{url_for("deleteEntry",uid=row.UID)}}' data-bs-toggle="modal" data-bs-target="#confirm-delete"><i class="fa-solid fa-trash-can" style="color: #ff0000;"></i></a></td>
+					</tr>
+				{%endfor%}
+			</tbody>
+			<tfoot class="table-warning">
+				<th colspan="7" class="text-end" id="totalsum"></th>
+			</tfoot>
+		</table>
+		<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body text-center">
+						<p>Are you sure you want to delete this Entry?</p>
+						<span class="d-flex justify-content-evenly">
+							<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
+							<a class="btn btn-danger btn-ok">Delete</a>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% include 'footer.html' %}

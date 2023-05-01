@@ -1,0 +1,24 @@
+{% include 'head.html' %}
+{% block body %}
+  <div class='row'>
+    <div class='col-md-4 mx-auto'>
+      <h3 class="text-center">Login</h3><hr>
+      <form class="text-center" method='post' action='{{url_for("login")}}'>
+        <div class='input-group form-group my-3'>
+          <div class="input-group-prepend loginicon"><i class="fa-solid fa-user"></i></div>
+          <input type="text" name='username' id='username' required class='form-control text-center rounded-pill' placeholder="Username">
+        </div>
+        <div class='input-group form-group my-3'>
+          <div class="input-group-prepend loginicon"><i class="fa-solid fa-lock"></i></div>
+          <input type="password" name='password' id='password' required class='form-control text-center rounded-pill' placeholder="Password">
+        </div>
+        <div class='form-group my-3'>
+          <input type="checkbox" name="remember" id="remember" class="form-check-input" checked>
+          <label for="remember">Remember Me</label>
+        </div>
+        <button type='submit' class='btn btn-primary loginbtn'><i class="fa-solid fa-right-to-bracket"></i> Login</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+{% include 'footer.html' %}

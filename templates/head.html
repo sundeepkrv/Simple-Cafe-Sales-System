@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Cafe42 {{title}}</title>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+		<link rel="icon" type="image/x-icon" href="static/cafe42.png">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
+		<script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.umd.min.js"></script>
+		<style type="text/css">
+			body { max-height: 650px; max-width: 90%; margin: auto; font-family: 'Poppins', sans-serif; background-color: white; color: black; }
+			img { max-width: 100px; }
+			.container { max-width: 800px; padding: 5px; }
+			.loginicon { left: 25px; position: relative; z-index: 9; line-height: 2.5rem; }
+			.btn { font-size: 0.8rem; border-radius: 50rem !important; font-weight: 700; }
+			.loginbtn { font-size: 1rem; }
+			.tablediv { font-size: 0.8rem; }
+			.table { padding: 5px 0; }
+			.dataTables_wrapper .dataTables_filter input { width: 200px; }
+			th, td { padding: 2px !important; }
+		</style>
+	</head>
+	<body>
+		<div class="text-center mb-2 d-flex flex-column align-items-center">
+			<img src="../static/cafe42.png">
+			<h2>Daily Sales</h2>
+		</div>
+		<div class='container'>
+			{% with messages=get_flashed_messages(with_categories=true) %}
+				{% if messages %}
+					{% for category, message in messages %}
+						<div id="msg" class='alert alert-{{category}} text-center p-2 w-75 mx-auto justify-content-center'>{{message}}</div>
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+			{% block body %}
+			
+			{% endblock %}
+		</div>
+	</body>
+</html>

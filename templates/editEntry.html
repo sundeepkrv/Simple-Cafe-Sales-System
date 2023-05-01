@@ -1,0 +1,32 @@
+{% include 'head.html' %}
+{% block body %}
+	<div class='row'>
+		<div class='col-md-4 mx-auto'>
+			<h3 class="text-center">Edit Entry</h3><hr>
+			<form class="text-center" method='post' action='{{url_for("editEntry",uid=datas.UID)}}'>
+				<div class='form-group my-3'>
+					<input list="names" type="text" name="name" id="name" required class="form-select" placeholder="{{datas.NAME}}">
+					<datalist id="names">
+					</datalist>
+				</div>
+				<div class='form-group my-3'>
+					<input list="items" type="text" name="item" id="item" required class="form-select" placeholder="{{datas.ITEM}}">
+					<datalist id="items">
+					</datalist>
+				</div>
+				<div class='form-group my-3'>
+					<input type='date' name='date' id='date' required class='form-control' value="{{datas.DATE}}">
+				</div>
+				<div class='form-group my-3'>
+					<input type='number' name='quantity' id='quantity' required class='form-control' min='1' value='{{datas.QUANTITY}}'>
+				</div>
+				<div class='form-group my-3'>
+					<input type='number' name='total' id='total' required class='form-control' placeholder='Total' disabled>
+				</div>
+				<button type='submit' class='btn btn-primary my-1'><i class="fa-solid fa-angles-right"></i> Submit</button>
+				<a type="button" class="btn btn-warning my-1" href="/home"><i class="fa-solid fa-home"></i> Go Home</a>
+			</form>
+		</div>
+	</div>
+{% endblock %}
+{% include 'footer.html' %}

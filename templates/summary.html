@@ -1,0 +1,58 @@
+{% include 'head.html' %}
+{% block body %}
+<div class='row'>
+    <div class='col-md-6 mx-auto'>
+    	<div class="text-center">
+			<h3>Sales Summary</h3><hr>
+			<form class="d-flex" method='post' action='{{url_for("summary")}}'>
+				<input list="names" type="text" name="name" id="name" required class="form-select m-1 tablediv" placeholder="Select Name">
+				<datalist id="names">
+				</datalist>
+				<button type='submit' class='btn btn-sm btn-primary m-1'>Submit</button>
+			</form>
+		</div>
+		{% if name %}
+		<h5 class="text-center m-3">Summary for <span class="text-success">{{name}}</span></h5>
+		<div class="container tablediv">
+			<table class='table' id="table">
+				<thead class="table-info">
+					<th class="text-center">Sl</th>
+					<th>Date</th>
+					<th>Total</th>
+				</thead>
+				<tbody id="tbody">
+					{% for i in range(0, chartData[0]|length) %}
+					<tr>
+						<td class="text-center">{{i+1}}</td>
+						<td>{{chartData[0][i]}}</td>
+						<td>{{chartData[1][i]}}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+				<tfoot class="table-success">
+					<th colspan="3" class="text-end" id="totalsum"></th>
+				</tfoot>
+			</table>
+		</div>
+		<canvas id="myChart"></canvas>
+		{% endif %}
+		<div class="text-center my-3">
+			<a type="button" class="btn btn-warning my-1" href="/home"><i class="fa-solid fa-home"></i> Go Home</a>
+			<a type="button" class="btn btn-danger" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	new Chart($('#myChart'), {
+		type: 'bar',
+		data: { labels: {{chartData[0]|tojson|safe}}, datasets: [{ label: 'Total', data: {{chartData[1]|tojson|safe}}, }], },
+		options: {
+			indexAxis: 'y',
+			responsive: true,
+			scales: { x: { grid: { display: false } }, y: { grid: { display: false } } },
+			plugins: { legend: { display: false } }
+		},
+	});
+</script>
+{% endblock %}
+{% include 'footer.html' %}
