@@ -11,7 +11,7 @@ You can go to https://cafe42.onrender.com for live working website.
 
 You can find the app screenshots in `screenshots` folder
 
-## Deveopment
+## Development
 
 This app has been developed in flask using python.
 
