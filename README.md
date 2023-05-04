@@ -13,7 +13,7 @@ You can find the app screenshots in `screenshots` folder
 
 This app has been developed in flask using python.
 
-## Running Locally
+## Deployment
 
 ### For Unix/MacOS
 
@@ -37,10 +37,16 @@ Create a virtual environment and install requirements
   pip install -r requirements.txt
 ```
 
-Start the server
+Start the server for local deployment
 
 ```bash
   python3 cafe42app.py
+```
+
+Using gunicorn for production deployment
+
+```bash
+  gunicorn --workers:2 cafe42app:app
 ```
 
 ### For Windows
@@ -65,10 +71,16 @@ Create a virtual environment and install requirements
   pip install -r requirements.txt
 ```
 
-Start the server
+Start the server for local deployment
 
 ```bash
-  python cafe42app.py
+  python3 cafe42app.py
+```
+
+Using gunicorn for production deployment
+
+```bash
+  gunicorn --workers:2 cafe42app:app
 ```
 
 ### Running behind a proxy network
