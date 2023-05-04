@@ -126,5 +126,6 @@ def summary():
         totals  = list(chartdf.TOTAL)
     return render_template("summary.html", title = '- Summary', name = name, chartData = [dates, totals])
 
-if __name__ == '__main__':
-    app.run(debug = True)
+# Uncomment below lines to run this app locally
+# if __name__ == '__main__':
+#     app.run(debug = True)
