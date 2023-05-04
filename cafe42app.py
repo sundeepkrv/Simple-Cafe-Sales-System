@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request,redirect,url_for,flash,session
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_session import Session
 import pandas as pd
 from datetime import timedelta
@@ -126,6 +126,6 @@ def summary():
         totals  = list(chartdf.TOTAL)
     return render_template("summary.html", title = '- Summary', name = name, chartData = [dates, totals])
 
-# Set debug = False for production deployment
+# Set debug = True for testing
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run(debug = False)
