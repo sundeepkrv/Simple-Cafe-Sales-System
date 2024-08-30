@@ -89,7 +89,7 @@ Using gunicorn for production deployment
 If you are trying to install the dependencies behind a proxy network, run the following - 
 
 ```bash
-  pip --proxy:http://xxx.xxx.xxx.xxx:yyyy install -r requirements.txt
+  pip --proxy=http://xxx.xxx.xxx.xxx:yyyy install -r requirements.txt
 ```
 ## Tech Stack
 
